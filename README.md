@@ -4,8 +4,9 @@ Install dependencies with `pipenv install`
 Run with `pipenv run python3 server.py`
 
 # Routes
-/token/access -> exchange the webflow auth code for a token
-/token/refresh -> exchange a refresh_token for a token
+`/token/access` -> exchange the webflow auth code for a token
+
+`/token/refresh` -> exchange a refresh_token for a token
 
 # Returns
 The same object returned by intra
