@@ -1,18 +1,14 @@
-#!/usr/bin/env python3
 import os
+
 import uvicorn
-
-from dotenv import load_dotenv
+from fastapi import Depends, FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, Request, Response, Depends
-from utils import validate_request
-from router import router
 
-load_dotenv()
+from router import router
+from utils import validate_request
+
 X_SECRET = os.getenv("X-SECRET")
-PORT = int(os.getenv("PORT"))
-SSL_CERT = os.getenv("SSL_CERT")
-SSL_KEY = os.getenv("SSL_KEY")
+
 
 app = FastAPI()
 
@@ -26,6 +22,7 @@ app.add_middleware(
     allow_headers=["X-Secret"],
 )
 
+
 @app.middleware("http")
 async def catch_exceptions(request: Request, call_next):
     try:
@@ -35,7 +32,8 @@ async def catch_exceptions(request: Request, call_next):
 
 
 def main():
-    uvicorn.run("server:app", host="0.0.0.0", port=PORT, reload=True, ssl_certfile=SSL_CERT, ssl_keyfile=SSL_KEY)
+    uvicorn.run("server:app", host="0.0.0.0", port=3000, reload=True)
+
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,8 @@
 import os
 
-from utils import request_token
 from fastapi import APIRouter, HTTPException
+
+from utils import request_token
 
 INTRA_AUTH_URL = os.getenv("INTRA_CLIENT_UID")
 INTRA_CLIENT_UID = os.getenv("INTRA_CLIENT_UID")
@@ -10,6 +11,7 @@ INTRA_REDIRECT_URI = os.getenv("INTRA_REDIRECT_URI")
 
 
 router = APIRouter(prefix="/token")
+
 
 @router.post("/access")
 async def get_intra_token(code: str = None):

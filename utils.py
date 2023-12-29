@@ -1,6 +1,6 @@
 import os
-import httpx
 
+import httpx
 from fastapi import HTTPException, Request
 
 X_SECRET = os.getenv("X-SECRET")
