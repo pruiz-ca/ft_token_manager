@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ft-token-manager"
+version = "1.0.0"
+description = "Server to get and return WebAuth tokens from 42API"
+authors = ["pruiz-ca <pruiz-ca@student.42madrid.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.108.0"
+uvicorn = "^0.25.0"
+httpx = "^0.26.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
